@@ -1,0 +1,93 @@
+.card {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    width: 1240px;
+    height: 198px;
+    background-color: #171717;
+    /* border:2px dotted green; */
+    /* left: calc(50% - 1280px/2); */
+    /* top: calc(50% - 198px/2 - 118px); */
+    margin: 13px 3px 3px 3px;
+    /* background-color:black; */
+    /* justify-content: left; */
+    /* align-items: left; */
+    /* background: #171717; */
+    border-radius: 10px;
+  }
+  
+  img {
+    background-color: #171717;
+    position: absolute;
+    left: 29px;
+    border-radius: 5px;
+    margin-top: 25px;
+    width: 296px;
+    height: 148px;
+  }
+  .data {
+    position: absolute;
+    left: 412px;
+    /* border:2px dotted; */
+    padding: 0px;
+    width: fit-content;
+    margin-top: 17px;
+    align-items: right;
+    justify-content: right;
+    background-color: #171717;
+  }
+  .row {
+    position: relative;
+    display: flex;
+  
+    /* left:412px; */
+    left: 0px;
+    padding: 0px;
+    /* border:1px solid; */
+    /* position: absolute; */
+    width: 353px;
+    height: 25px;
+    /* left: calc(50% - 353px/2 - 94.5px); */
+    /* top: calc(50% - 25px/2 - 179.5px); */
+    margin-top: 8px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    background-color: #171717;
+  
+    color: #cfcfcf;
+  }
+  
+  .span {
+    background-color: #171717;
+  }
+  .geo {
+    display: flex;
+    margin-left: 1050px;
+    margin-top: 28px;
+    width: fit-content;
+    background-color: #171717;
+  
+    /* border: 1px dotted yellow; */
+  }
+  .sname,
+  .cname {
+    padding: 4px 10px;
+    background-color: #171717;
+    margin-left: 5px;
+    /* width: 68px; */
+    /* width: 80px; */
+    /* height: 20px; */
+    /* height: 15px; */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.56);
+    border-radius: 16px;
+  }
+  

@@ -1,0 +1,73 @@
+.Nrides{
+    position: absolute;
+    width: fit-content;
+    height: 22px;
+    left: 43px;
+    top: 113px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+/* identical to box height */
+
+
+    color: #FFFFFF;
+}
+.Prides{
+    position: absolute;
+width: fit-content;
+height: 22px;
+left: 413px;
+top: 113px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+text-align: right;
+
+color: #D0CBCB;
+
+}
+.Urides{
+    position: absolute;
+width: fit-content;
+height: 22px;
+left: 205px;
+top: 113px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+
+
+color: #D0CBCB;
+
+}
+
+.Nrides:hover,.Prides:hover,.Urides:hover{
+    cursor:pointer;
+
+}
+.fbtn{
+    position: absolute;
+width: fit-content;
+/* padding :5px 2px 2px 2px; */
+height: fit-content;
+left: 1205px;
+top: 113px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 22px;
+} 

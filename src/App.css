@@ -1,38 +1,106 @@
+* {
+  background: #292929;
+  color: #ffffff;
+}
 .App {
+  font-family: sans-serif;
   text-align: center;
+  position: relative;
+width: 1366px;
+height: 768px;
+
+background: #292929;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar_btm {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #d0cbcb;
 }
 
-.App-link {
-  color: #61dafb;
+.nearest_rides {
+  position: absolute;
+  width: fit-content;
+  height: 22px;
+  left: 43px;
+  top: 115px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  color: #d0cbcb;
+}
+.upcoming_rides {
+  color: #d0cbcb;
+  position: absolute;
+  width: fit-content;
+  height: 22px;
+  left: 205px;
+  top: 115px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+}
+.past_rides {
+  position: absolute;
+
+  width: fit-content;
+  height: 22px;
+  left: 413px;
+  top: 115px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+
+  text-align: right;
+
+  color: #d0cbcb;
+}
+.filter {
+  position: absolute;
+  width: 39px;
+  height: 19px;
+  /* right: 10%; */
+  left: 1217px;
+  top: 117px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #f2f2f2;
+}
+.filtericon {
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: 25%;
+  bottom: 25%;
+
+  background: rgba(255, 255, 255, 0.8);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content-box {
+  position: absolute;
+  top: 160px;
+  left: 40px;
+
+  width: 1260px;
+  height: auto;
+  /* border: 2px dotted white;
+  background-color: red; */
 }
