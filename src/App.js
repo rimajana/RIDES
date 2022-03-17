@@ -44,6 +44,7 @@ function App() {
 
   }, [])
 
+
   const userid = users.station_code;
   console.log(users);
 
@@ -56,92 +57,90 @@ function App() {
       .then(function (response) {
 
         setoriginalarr(response.data);
+
+
+        var sortedarr = [...arr];//saved a copy of array for future use
+
+        // console.log("here");
+        // console.log(arr)
+        // console.log("here1")
+        // console.log(sortedarr);
+        //cdistance is dis
+        // sort according to distance
+        var d = 0;
+        for (var i = 0; i < sortedarr.length; i++) {
+          d = Math.abs(sortedarr[i].destination_station_code - userid);
+          for (var j = 0; j < sortedarr[i].station_path.length; j++) {
+            if (Math.abs(sortedarr[i].station_path[j] - userid) < d) {
+              d = Math.abs(sortedarr[i].station_path[j] - userid);
+            }
+          }
+          //d is minimum dist from our station to station path
+          sortedarr[i].distance = d;
+        }
+
+
+        //sorting by distance
+        for (var i = 0; i < sortedarr.length; i++) {
+          for (var j = 0; j < sortedarr.length; j++) {
+            if (sortedarr[i].distance < sortedarr[j].distance) {
+              var temp2 = sortedarr[i];
+              sortedarr[i] = sortedarr[j];
+              sortedarr[j] = temp2;
+            }
+          }
+        }
+
+        setnearest((n) => { n = sortedarr });
+        const upcomingrides = sortedarr.filter((obj) => {
+          return new Date(obj.date) - new Date() > 0;
+        });
+
+        const pastrides = sortedarr.filter((obj) => {
+          return new Date(obj.date) - new Date() < 0;
+        });
+
+        setupcoming((u) => { u = upcomingrides });
+        setpast((u) => { u = pastrides });
+
+        setutemp(upcomingrides);
+        setptemp(pastrides);
+        setntemp(nearestarr);
+        console.log("h");
+        console.log(nearestarr);
+        console.log(pastarr);
+        console.log(upcomingarr);
+        console.log("i");
+        //states and cities arr
+        const states = arr.map((item) => {
+          return item.state;
+        });
+
+        const cities = arr.map((item) => {
+          return item.city;
+        });
+        const statesUnique = [...new Set(states)];
+        const citiesUnique = [...new Set(cities)];
+
+        //   //creating an object to map state to city
+        const stateMap = {};
+        statesUnique.map((item) => {
+          stateMap[item] = [];
+        });
+        for (var i = 0; i < arr.length; i++) {
+          stateMap[arr[i].state].push(arr[i].city);
+        }
+        for (var i = 0; i < Object.keys(stateMap).length; i++) {
+          stateMap[Object.keys(stateMap)[i]] = [
+            ...new Set(stateMap[Object.keys(stateMap)[i]]),
+          ];
+        }
+        stateMap["all"] = citiesUnique;
+        setMap(stateMap);
+        setState(statesUnique);
+        setCity(citiesUnique);
+
       });
-
-    var sortedarr = [...arr];//saved a copy of array for future use
-
-    // console.log("here");
-    // console.log(arr)
-    // console.log("here1")
-    // console.log(sortedarr);
-    //cdistance is dis
-    // sort according to distance
-
-    var d = 0;
-    for (var i = 0; i < sortedarr.length; i++) {
-      d = Math.abs(sortedarr[i].destination_station_code - userid);
-      for (var j = 0; j < sortedarr[i].station_path.length; j++) {
-        if (Math.abs(sortedarr[i].station_path[j] - userid) < d) {
-          d = Math.abs(sortedarr[i].station_path[j] - userid);
-        }
-      }
-      //d is minimum dist from our station to station path
-      sortedarr[i].distance = d;
-    }
-
-
-    //sorting by distance
-    for (var i = 0; i < sortedarr.length; i++) {
-      for (var j = 0; j < sortedarr.length; j++) {
-        if (sortedarr[i].distance < sortedarr[j].distance) {
-          var temp2 = sortedarr[i];
-          sortedarr[i] = sortedarr[j];
-          sortedarr[j] = temp2;
-        }
-      }
-    }
-
-    setnearest(sortedarr);
-    const upcomingrides = sortedarr.filter((obj) => {
-      return new Date(obj.date) - new Date() > 0;
-    });
-
-    const pastrides = sortedarr.filter((obj) => {
-      return new Date(obj.date) - new Date() < 0;
-    });
-
-    setupcoming(upcomingrides);
-    setpast(pastrides);
-
-    setutemp(upcomingrides);
-    setptemp(pastrides);
-    setntemp(nearestarr);
-    console.log("h");
-    console.log(nearestarr);
-    console.log(pastarr);
-    console.log(upcomingarr);
-    console.log("i");
-    //states and cities arr
-    const states = arr.map((item) => {
-      return item.state;
-    });
-
-    const cities = arr.map((item) => {
-      return item.city;
-    });
-    const statesUnique = [...new Set(states)];
-    const citiesUnique = [...new Set(cities)];
-
-    //   //creating an object to map state to city
-    const stateMap = {};
-    statesUnique.map((item) => {
-      stateMap[item] = [];
-    });
-    for (var i = 0; i < arr.length; i++) {
-      stateMap[arr[i].state].push(arr[i].city);
-    }
-    for (var i = 0; i < Object.keys(stateMap).length; i++) {
-      stateMap[Object.keys(stateMap)[i]] = [
-        ...new Set(stateMap[Object.keys(stateMap)[i]]),
-      ];
-    }
-    stateMap["all"] = citiesUnique;
-    setMap(stateMap);
-
-    setState(statesUnique);
-    setCity(citiesUnique);
-
-
   }, []);
 
   useEffect(() => {
