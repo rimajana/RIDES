@@ -38,8 +38,6 @@ function App() {
       .get("https://assessment.api.vweb.app/user")
       .then(function (response) {
         setUsers(response.data);
-
-
       });
 
   }, [])
@@ -57,6 +55,7 @@ function App() {
       .then(function (response) {
 
         setoriginalarr(response.data);
+        console.log("response", response.data)
 
 
         var sortedarr = [...arr];//saved a copy of array for future use
